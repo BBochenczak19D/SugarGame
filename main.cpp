@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <fstream>
 
 using namespace std;
 
@@ -31,37 +32,36 @@ public:
         string dobra_reakcje[] = {
     "Smakuje jak wakacje w Radomiu z 2003!",
     "O kurde, jakby mi ktos wlal szczescie do ust.",
-    "To lepsze niz darmowe próbki w Biedrze!",
-    "Jakbym jadla watê cukrow¹ posypan¹ dŸwiêkiem techno.",
+    "To lepsze niz darmowe prÃ³bki w Biedrze!",
+    "Jakbym jadla watÄ™ cukrowÄ… posypanÄ… dÅºwiÄ™kiem techno.",
     "Mniam jak pierwsze piwo na klatce schodowej!",
     "Jeszcze! I jeszcze! I moze byc z plastikiem nawet!",
-    "Cukierek jak sen na dopalaczach – ale legalny.",
-    "Czujê, ¿e wraca mi wiara w ludzkoœæ. I w s³odycze."
+    "Cukierek jak sen na dopalaczach â€“ ale legalny.",
+    "CzujÄ™, Å¼e wraca mi wiara w ludzkoÅ›Ä‡. I w sÅ‚odycze."
 };
         string srednia_reakcje[] = {
-    "No nie wiem, jakby miêtowa pasta do zêbów udawala lizaka.",
+    "No nie wiem, jakby miÄ™towa pasta do zÄ™bÃ³w udawala lizaka.",
     "Jest okej... ale bez dreszczy.",
-    "Smakuje jak herbata u cioci: ani z³a, ani dobra, po prostu jest.",
-    "To chyba z tych cukierków, co siê je z grzecznoœci.",
-    "Jakby ktoœ rozpuœci³ marzenie w chlorowanej wodzie.",
+    "Smakuje jak herbata u cioci: ani zÅ‚a, ani dobra, po prostu jest.",
+    "To chyba z tych cukierkÃ³w, co siÄ™ je z grzecznoÅ›ci.",
+    "Jakby ktoÅ› rozpuÅ›ciÅ‚ marzenie w chlorowanej wodzie.",
     "Taki smak 'meh', ale przynajmniej nie kopie jak gaz z kaloryfera.",
-    "Jakbym jadla watê, co le¿a³a za szaf¹, ale z cukrem."
+    "Jakbym jadla watÄ™, co leÅ¼aÅ‚a za szafÄ…, ale z cukrem."
 };
         string zla_reakcje[] = {
     "Fuj! Smakuje jak sen o zepsutym jogurcie!",
     "To jest przestepstwo przeciwko kubkom smakowym.",
     "Czy to... guma do zucia po babci?",
-    "Mam wrazenie, ¿e zjadlam zapach klatki schodowej.",
+    "Mam wrazenie, Å¼e zjadlam zapach klatki schodowej.",
     "To nie jest cukierek, to trauma w folii.",
-    "Smak jak z autobusu linii 145 w lipcu – bez klimy.",
-    "Wypluj mnie, blagam – krzyczy moj jezyk.",
-    "Czuje sie jakbym zdradzi³a swoj¹ diete i swoja godnosc."
+    "Smak jak z autobusu linii 145 w lipcu â€“ bez klimy.",
+    "Wypluj mnie, blagam â€“ krzyczy moj jezyk.",
+    "Czuje sie jakbym zdradziÅ‚a swojÄ… diete i swoja godnosc."
 };
 
         //losowanie imienia, nazwiska i historyjki
         imie = imiona[rand() % 5];
         nazwisko = nazwiska[rand() % 5];
-        historyjka = historyjki[rand() % 5];
         historyjka = historyjki[rand() % 5];
         dobra_reakcja = dobra_reakcje[rand() % 5];
         srednia_reakcja = srednia_reakcje[rand() % 5];
@@ -72,7 +72,7 @@ public:
         if (poprawne)
             cout << dobra_reakcja << endl;
         else
-             cout << zla_reakcja << reakcja << endl;
+             cout << zla_reakcja << endl;
     }
 
     void pokaz() {
@@ -140,8 +140,24 @@ public:
     Receptura receptura;
     Skladnik wybor[3];
 
+    bool porownaj() {
+        // Sprawdzamy, czy podane skÅ‚adniki zgadzajÄ… siÄ™ z recepturÄ… (nazwa i iloÅ›Ä‡)
+        for (int i = 0; i < 3; ++i) {
+            bool znaleziono = false;
+            for (int j = 0; j < 3; ++j) {
+                if (wybor[i].nazwa == receptura.skladniki[j].nazwa &&
+                    wybor[i].ilosc == receptura.skladniki[j].ilosc) {
+                    znaleziono = true;
+                    break;
+                }
+            }
+            if (!znaleziono) return false; // jeÅ›li ktÃ³ryÅ› skÅ‚adnik nie pasuje, zwrÃ³Ä‡ false
+        }
+        return true; // jeÅ›li wszystkie pasujÄ…, zwrÃ³Ä‡ true
+    }
+
     void start() {
-        srand(time(0)); //funkcja potrzebna do losowania
+        srand(time(0)); // inicjalizacja losowania
 
         klient.losuj();
         receptura.ustawMojito();
@@ -150,38 +166,50 @@ public:
 
         klient.pokaz();
         cout << "Zamowienie do wykonania: ";
-        receptura.pokaz(); //f do wystwietlania receptury ktora sie wylosowala - odkomentuj zeby zobaczyc czy program dzia³a dobrze
+        receptura.pokaz();
         cout << "--------------------------------\n";
-        Skladnik::wyswietlSklep(); // to jest funkcja statyczna wiec mozna j¹ wywo³aæ poprzez "::" klasa::nazwa_funkcji
+        Skladnik::wyswietlSklep();
         cout << "--------------------------------\n";
+
         cout << "\nDodaj 3 skladniki (nazwa + malo/duzo):\n";
         for (int i = 0; i < 3; ++i) {
             cout << "Skladnik #" << (i + 1) << ": ";
             getline(cin, wybor[i].nazwa);
-            cout << endl;
             cout << "  Ilosc (malo/duzo): ";
             getline(cin, wybor[i].ilosc);
         }
 
-        bool trafione = porownaj(); // tu trzeba jakos zrobic ten scoring? póki co sprawdza tylko czy receptura git czy nie. Mo¿e w klasie jakas funkcje z scoringiem trzeba?
+        bool trafione = porownaj();
         klient.zareaguj(trafione);
-    }
 
-    bool porownaj() {
-        for (int i = 0; i < 3; ++i) {
-            if (
-                wybor[i].nazwa != receptura.skladniki[i].nazwa ||
-                wybor[i].ilosc != receptura.skladniki[i].ilosc
-            ) {
-                return false;
+        // zapis do pliku
+        ofstream plik("wyniki.txt", ios::app);
+        if (plik.is_open()) {
+            plik << "Klient: " << klient.imie << " " << klient.nazwisko << endl;
+            plik << "Historyjka: " << klient.historyjka << endl;
+            plik << "ZamÃ³wienie (wÅ‚aÅ›ciwe):" << endl;
+            for (int i = 0; i < 3; ++i) {
+                plik << "- " << receptura.skladniki[i].nazwa << ": " << receptura.skladniki[i].ilosc << endl;
             }
+            plik << "Twoje skÅ‚adniki:" << endl;
+            for (int i = 0; i < 3; ++i) {
+                plik << "- " << wybor[i].nazwa << ": " << wybor[i].ilosc << endl;
+            }
+            plik << "Ocena klienta: ";
+            if (trafione) {
+                plik << klient.dobra_reakcja;
+            } else {
+                plik << klient.zla_reakcja;
+            }
+            plik << "\n---------------------------\n";
+            plik.close();
+        } else {
+            cout << "Nie udaÅ‚o siÄ™ otworzyÄ‡ pliku do zapisu!" << endl;
         }
-        return true;
     }
 };
-
 int main() {
-    Gra gra;
-    gra.start();
+    Menu menu;
+    menu.uruchom(); // odpala menu i ewentualnie grÄ™
     return 0;
 }
