@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <fstream>
 
 using namespace std;
 
@@ -31,31 +32,31 @@ public:
         string dobra_reakcje[] = {
     "Smakuje jak wakacje w Radomiu z 2003!",
     "O kurde, jakby mi ktos wlal szczescie do ust.",
-    "To lepsze niz darmowe pr�bki w Biedrze!",
-    "Jakbym jadla wat� cukrow� posypan� d�wi�kiem techno.",
+    "To lepsze niz darmowe próbki w Biedrze!",
+    "Jakbym jadla watę cukrową posypaną dźwiękiem techno.",
     "Mniam jak pierwsze piwo na klatce schodowej!",
     "Jeszcze! I jeszcze! I moze byc z plastikiem nawet!",
-    "Cukierek jak sen na dopalaczach � ale legalny.",
-    "Czuj�, �e wraca mi wiara w ludzko��. I w s�odycze."
+    "Cukierek jak sen na dopalaczach – ale legalny.",
+    "Czuję, że wraca mi wiara w ludzkość. I w słodycze."
 };
         string srednia_reakcje[] = {
-    "No nie wiem, jakby mi�towa pasta do z�b�w udawala lizaka.",
+    "No nie wiem, jakby miętowa pasta do zębów udawala lizaka.",
     "Jest okej... ale bez dreszczy.",
-    "Smakuje jak herbata u cioci: ani z�a, ani dobra, po prostu jest.",
-    "To chyba z tych cukierk�w, co si� je z grzeczno�ci.",
-    "Jakby kto� rozpu�ci� marzenie w chlorowanej wodzie.",
+    "Smakuje jak herbata u cioci: ani zła, ani dobra, po prostu jest.",
+    "To chyba z tych cukierków, co się je z grzeczności.",
+    "Jakby ktoś rozpuścił marzenie w chlorowanej wodzie.",
     "Taki smak 'meh', ale przynajmniej nie kopie jak gaz z kaloryfera.",
-    "Jakbym jadla wat�, co le�a�a za szaf�, ale z cukrem."
+    "Jakbym jadla watę, co leżała za szafą, ale z cukrem."
 };
         string zla_reakcje[] = {
     "Fuj! Smakuje jak sen o zepsutym jogurcie!",
     "To jest przestepstwo przeciwko kubkom smakowym.",
     "Czy to... guma do zucia po babci?",
-    "Mam wrazenie, �e zjadlam zapach klatki schodowej.",
+    "Mam wrazenie, że zjadlam zapach klatki schodowej.",
     "To nie jest cukierek, to trauma w folii.",
-    "Smak jak z autobusu linii 145 w lipcu � bez klimy.",
-    "Wypluj mnie, blagam � krzyczy moj jezyk.",
-    "Czuje sie jakbym zdradzi�a swoj� diete i swoja godnosc."
+    "Smak jak z autobusu linii 145 w lipcu – bez klimy.",
+    "Wypluj mnie, blagam – krzyczy moj jezyk.",
+    "Czuje sie jakbym zdradziła swoją diete i swoja godnosc."
 };
 
         //losowanie imienia, nazwiska i historyjki
@@ -139,45 +140,177 @@ public:
     Klient klient;
     Receptura receptura;
     Skladnik wybor[3];
-
-    void start() {
-        srand(time(0)); //funkcja potrzebna do losowania
-
-        klient.losuj();
-        receptura.ustawMojito();
-
-        cout << "--------------------------------\n";
-
-        klient.pokaz();
-        cout << "Zamowienie do wykonania: ";
-        receptura.pokaz(); //f do wystwietlania receptury ktora sie wylosowala - odkomentuj zeby zobaczyc czy program dzia�a dobrze
-        cout << "--------------------------------\n";
-        Skladnik::wyswietlSklep(); // to jest funkcja statyczna wiec mozna j� wywo�a� poprzez "::" klasa::nazwa_funkcji
-        cout << "--------------------------------\n";
-        cout << "\nDodaj 3 skladniki (nazwa + malo/duzo):\n";
-        for (int i = 0; i < 3; ++i) {
-            cout << "Skladnik #" << (i + 1) << ": ";
-            getline(cin, wybor[i].nazwa);
-            cout << endl;
-            cout << "  Ilosc (malo/duzo): ";
-            getline(cin, wybor[i].ilosc);
-        }
-
-        bool trafione = porownaj(); // tu trzeba jakos zrobic ten scoring? p�ki co sprawdza tylko czy receptura git czy nie. Mo�e w klasie jakas funkcje z scoringiem trzeba?
-        klient.zareaguj(trafione);
-    }
-
+    
+    
+    void menu() {
+            cout << "╔═══════════════════════════════════════════════╗\n";
+            cout << "╠═════════════════ WITAJ W GRZE ════════════════╣\n";
+            cout << "║═════════════════ SŁODKI TRIP! ════════════════║\n";
+            cout << "╠═══════════════════════════════════════════════╣\n";
+            cout << "║        W grze wcielasz się w cukiermana,      ║\n";
+            cout << "║     który przygotowuje zamówienia klientów.   ║\n";
+            cout << "║     Twoim celem jest jak najlepiej spełnić    ║\n";
+            cout << "║           ich słodkie oczekiwania!            ║\n";
+            cout << "╠═══════════════════════════════════════════════╣\n";
+            cout << "║               1. Zagraj                       ║\n";
+            cout << "╚═══════════════════════════════════════════════╝\n";
+            cout << "║               2. Jak grać                     ║\n";
+            cout << "╚═══════════════════════════════════════════════╝\n";
+            cout << "║               3. Tabela wyników               ║\n";
+            cout << "╚═══════════════════════════════════════════════╝\n";
+            cout << "║               4. Wyjście z gry                ║\n";
+            cout << "╚═══════════════════════════════════════════════╝\n";
+        
+        cout<<endl;
+                   cout << "WYBIERZ OPCJĘ: ";
+               }
+    
     bool porownaj() {
         for (int i = 0; i < 3; ++i) {
             if (
                 wybor[i].nazwa != receptura.skladniki[i].nazwa ||
                 wybor[i].ilosc != receptura.skladniki[i].ilosc
-            ) {
-                return false;
-            }
+                ) {
+                    return false;
+                }
         }
         return true;
     }
+    
+   
+        
+    // Zapis stałej wartości score do pliku
+    void zapiszScoring() {
+        int score = 100;  // tymczasowa stała wartość scoringu
+
+            ofstream plik("score.txt", ios::app); // dopisywanie
+            if (plik.is_open()) {
+                plik << score << endl;
+                plik.close();
+            }
+    }
+
+    // Odczyt scoringu z pliku
+    void odczytajScoring() {
+            ifstream plik("score.txt");
+            int score;
+            int licznik = 1;
+            if (plik.is_open()) {
+                cout << "╔═════════════════════════════════════╗\n";
+                cout << "║     T A B E L A   W Y N I K Ó W     ║\n";
+                cout << "╚═════════════════════════════════════╝\n";
+                cout << "Lp." <<"         " << "Wynik\n";
+                       cout << "══════════════════════════════\n";
+                while (plik >> score) {
+                    cout << licznik << ".          " << score << endl;
+                    licznik++;
+                }
+                cout << "══════════════════════════════\n";
+                plik.close();
+            } else {
+                cout << " ----Brak wyników do wyświetlenia.----\n";
+            }
+    }
+
+    
+    void start() {
+        
+        menu();
+        int opcja;
+        
+        cin >> opcja;
+        cin.ignore(); // czyści bufor przed użyciem getline w klasie Gra
+        
+        if (opcja == 1) {
+            
+            start:
+            
+            srand(time(0)); //funkcja potrzebna do losowania
+            
+            klient.losuj();
+            receptura.ustawMojito();
+            
+            cout << "--------------------------------\n";
+            
+            klient.pokaz();
+            cout << "Zamowienie do wykonania: ";
+            receptura.pokaz(); //f do wystwietlania receptury ktora sie wylosowala - odkomentuj zeby zobaczyc czy program działa dobrze
+            cout << "--------------------------------\n";
+            Skladnik::wyswietlSklep(); // to jest funkcja statyczna wiec mozna ją wywołać poprzez "::" klasa::nazwa_funkcji
+            cout << "--------------------------------\n";
+            cout << "\nDodaj 3 skladniki (nazwa + malo/duzo):\n";
+            for (int i = 0; i < 3; ++i) {
+                cout << "Skladnik #" << (i + 1) << ": ";
+                getline(cin, wybor[i].nazwa);
+                cout << endl;
+                cout << "  Ilosc (malo/duzo): ";
+                getline(cin, wybor[i].ilosc);
+            }
+            
+            zapiszScoring(); // po skonczonej grze zapis scoringu - na razie jest sztywno na 100 ustawiony
+            
+            bool grajDalej = true;
+            while (grajDalej) {
+                string wybor;
+                cout << "\nCzy chcesz zagrać jeszcze raz? (tak/nie): ";
+                cin >> wybor;
+                if (wybor == "tak" && wybor == "TAK" && wybor == "Tak") {
+                    goto start;
+                }
+                else {
+                    cout << "\nDziękujemy za grę! Do zobaczenia!\n";
+                }
+            }
+        }
+        
+        if (opcja == 2){
+    
+            cout << "╔════════════════════════════════════════════════════════╗\n";
+            cout << "║              ➤ Twórz zwariowane cukierki!              ║\n";
+            cout << "║════════════════════════════════════════════════════════║\n";
+            cout << "║                ➤ Mieszaj 5 składników:                 ║\n";
+            cout << "║                     - składnik1                        ║\n";
+            cout << "║                     - składnik2                        ║\n";
+            cout << "║                     - składnik3                        ║\n";
+            cout << "║                     - składnik4                        ║\n";
+            cout << "║                     - składnik5                        ║\n";
+            cout << "║════════════════════════════════════════════════════════║\n";
+            cout << "║           ➤ Wybierz proporcje: mało / dużo             ║\n";
+            cout << "║           ➤ Traf w przepis lub stwórz nowy!            ║\n";
+            cout << "║           ➤ Śledź reakcje klientów!                    ║\n";
+            cout << "║════════════════════════════════════════════════════════║\n";
+            cout << "║          Cel: Zdobądź tytuł Mistrza Słodyczy!          ║\n";
+            cout << "╠════════════════════════════════════════════════════════╣\n";
+            cout << "║           Wciśnij dowolny znak oraz ENTER              ║\n";
+            cout << "║                          i                             ║\n";
+            cout << "║            zacznij zanim klient ucieknie!              ║\n";
+            cout << "╚════════════════════════════════════════════════════════╝\n";
+                char znak;
+                   cin >> znak;
+            goto start;
+            }
+           
+        
+        
+        if (opcja == 3){
+           odczytajScoring();
+        }
+        else {
+            cout << "\n";
+                cout << "╔══════════════════════════════════════╗\n";
+                cout << "║                                      ║\n";
+                cout << "║   DZIĘKUJEMY ZA GRĘ! DO ZOBACZENIA!  ║\n";
+                cout << "║                                      ║\n";
+                cout << "╚══════════════════════════════════════╝\n";
+                cout << "\n";
+        }
+        
+        
+        
+        bool trafione = porownaj(); // tu trzeba jakos zrobic ten scoring? póki co sprawdza tylko czy receptura git czy nie. Może w klasie jakas funkcje z scoringiem trzeba?
+        klient.zareaguj(trafione);
+    }
+
 };
 
 int main() {
@@ -185,3 +318,4 @@ int main() {
     gra.start();
     return 0;
 }
+
