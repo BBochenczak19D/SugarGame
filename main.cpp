@@ -5,6 +5,8 @@
 #include <limits>
 #include <fstream>
 #include <cmath>
+#include <algorithm> 
+#include <cctype>    
 using namespace std;
 
 class Klient {
@@ -16,8 +18,9 @@ public:
     string dobra_reakcja;
     string srednia_reakcja;
     string zla_reakcja;
+    int index;
 
-    static bool uzyteHistoryjki[6]; // Do śledzenia użytych historyjek
+    static bool uzyteHistoryjki[15]; // Do śledzenia użytych historyjek
 
     static void resetujUzycie() {
         for (int i = 0; i < 6; ++i)
@@ -28,13 +31,22 @@ public:
         string imiona[] = { "Anna", "Jan", "Ola", "Tomek", "Zosia" };
         string nazwiska[] = { "Nowak", "Kowalski", "Wisniewski", "Kaczmarek", "Dabrowska" };
         string historyjki[] = {
-            "Wyszedlem tylko po chleb, a wrocilem z wata cukrowa, trzema krasnalami i nowym tatuazem z napisem 'Slodycz to bunt'. Mama nie uwierzyla, ale babcia tak.",
-            "Zakochalam sie w cukierniku. Robil landrynki, ale byl niemowa i porozumiewal sie przez dzwiek dzwoneczkow. Porwali go hipsterzy i zmusili do robienia krowek z tofu.",
-            "Moj sasiad siedzi w szafie i krzyczy, ze jest batonem. Policja juz byla, ale dali mu mleko i poszli. Tez czasem czuje sie jak Prince Polo.",
-            "Babcia mowi, ze w PRL-u cukierki smakowaly jak wspomnienie niedzieli i smog. Dzis dzieci jedza zelki i nie wiedza, co to ostatni Michalek.",
-            "Kiedys zjadlam worek cukierkow i uslyszalam glosy. To byla reklama z radia sasiada, ale przysiegam: mowila do mnie landrynka. Miala glos Dody.",
-            "Moj chlopak pracuje w fabryce lizakow. Kazdy smak to emocja. Jagodowy to wstyd, truskawkowy to trauma, a coli nie robia, bo to bylby manifest."
-        };
+        "Hej, słyszałem o Tobie od mojego kolegi! Podobno masz najlepsze cukierki w mieście! To prawda, że pierwszy za darmo?",
+        "Wiem, że wiszę Ci trochę kasy za ostatnie cukierki, ale co powiesz na wymianę. Mogę oddać Ci moją mamę…",
+        "Mój chłopak to prawdziwy romantyk. Poznaliśmy się na spotkaniu anonimowych miłośników cukierków! Siedzieliśmy w kółku i opowiadaliśmy o naszych ulubionych smakach! To nasza druga randka. Możesz coś dla nas przygotować?😊",
+        "No siema. Potrzebuję małej pomocy. Mój przyjaciel nie je cukierków już od kilku tygodni. Wiem, że strasznie je lubi, ale chyba wstydzi się tego przyznać. Na pewno będzie mu miło po małym prezencie!",
+        "Potrzebuję wsparcia. Jutro mam zawody sportowe i myślę, że mały cukierek mógłby okazać się nieocenioną pomocą! Nie, nie nazywam się Karaś!",
+        "Przyśnił mi się sen. Beata Kozidrak przybiła mi piątkę, a potem podwiozła mnie na przystanek tramwajowy. Po drodze mieliśmy wypadek – patrzę, a jestem w szpitalu… Co? Oj, faktycznie mam wenflon w łapie…",
+        "Zamknąłem brata w lodówce, bo zabrał mi ostatniego cukierka. No trudno, przynajmniej nie zgnije. Swoją drogą – nie potrzebujesz może nerki?",
+        "Moja babcia biega po mieszkaniu i krzyczy, że jest beretem. Nie do końca rozumiem co to znaczy, wydawało mi się, że jest moherem.",
+        "Nie uwierzysz w tę historię! Wychodzę wczoraj po chleb, a wracam z taczką pełną Rumunów. I co ja teraz z nimi zrobię? Przecież nie hoduję na balkonie żadnych róż! Przecież to nie Wrocław!",
+        "Ej, słyszałeś ten huk? A, w takim razie musiało mi się tylko przesłyszeć…",
+        "Ręce trzęsą mi się od dziecka, a teraz i tak jest dużo lepiej! Kiedyś złamałem nos nauczycielowi. Nie, te historie nie są powiązane…",
+        "Próbowałeś kiedyś przykręcić koło bananem? To znacznie łatwiejsze niż się wydaje. Potrzeba tylko dużo cierpliwości i dwa słoiki masła orzechowego!",
+        "Jestem zrozpaczony. Nie dostałem się na ASP. To chyba znak od losu, że pora zająć się polityką…",
+        "Zawsze mam przy sobie łyżeczkę, bo piję dużo kawy i brzydzę się cudzych sztućców. A zapalniczka leżała na drodze…",
+        "Oglądałeś Matrixa? Którą tabletkę byś wybrał? Ja obie."
+    };
 
         string dobra_reakcje[] = {
             "Smakuje jak wakacje w Radomiu z 2003!",
@@ -73,12 +85,12 @@ public:
         nazwisko = nazwiska[rand() % 5];
 
         // losowanie unikalnej historyjki
-        int index = 0;
+        index = 0;
         int proby = 0;
         do {
-            index = rand() % 6;
+            index = rand() % 15;
             proby++;
-        } while (uzyteHistoryjki[index] && proby < 10);
+        } while (uzyteHistoryjki[index] && proby < 15);
         uzyteHistoryjki[index] = true;
         historyjka = historyjki[index];
 
@@ -88,19 +100,14 @@ public:
         zla_reakcja = zla_reakcje[rand() % 8];
     }
 
-    void zareaguj(bool poprawne) {
-        if (poprawne)
-            cout << dobra_reakcja << endl;
-        else
-            cout << zla_reakcja << reakcja << endl;
-    }
+  
 
     void pokaz() {
         cout << "Klient: " << imie << " " << nazwisko << endl;
         cout << "Historyjka: " << historyjka << endl;
     }
 };
-bool Klient::uzyteHistoryjki[6] = { false };
+bool Klient::uzyteHistoryjki[15] = { false };
 
 
 class Skladnik {
@@ -110,26 +117,17 @@ public:
 
      static void wyswietlSklep() {
 
-        string listaSkladnikow[] = { "woda z kaloryfera",
-    "cukier z PRL-u",
-    "aromat biedy",
-    "mleko w proszku 3.0",
-    "cola turbo light",
-    "syrop z melancholii",
-    "smog malinowy",
-    "gluten syntetyczny",
-    "kofeina uliczna",
-    "mieta z kebaba",
-    "popiol z papierosa mentolowego",
-    "olejek disco polo",
-    "parowka waniliowa",
-    "brokat z bazaru",
-    "sok z dramatyzmu",
-    "margaryna wspomnien",
-    "piana z energetyka",
-    "aromat porazki" };
+        string listaSkladnikow[] = {
+    "Cukier puder",
+    "Susz owocowy",
+    "Tęczowy barwnik",
+    "Miód waniliowy",
+    "Witamina C",
+    "Cynamon"
+};
+
         cout << "=== SKLADNIKI DO WYBORU ===" << endl;
-        for (int i = 0; i < 8; ++i) {
+        for (int i = 0; i < 6; ++i) {
             cout << "- " << listaSkladnikow[i] << " (malo / duzo)" << endl;
         }
         cout << "=======================" << endl;
@@ -147,6 +145,111 @@ public:
         skladniki[1] = { "rum", "duzo" };
         skladniki[2] = { "mieta", "malo" };
     }
+    void ustawRecepture1() {
+    nazwa = "Koka Kola";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Susz owocowy", "malo" };
+    skladniki[2] = { "Miod waniliowy", "malo" };
+}
+
+void ustawRecepture2() {
+    nazwa = "KRAKoski sprint";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Witamina C", "duzo" };
+    skladniki[2] = { "Cynamon", "duzo" };
+}
+
+void ustawRecepture3() {
+    nazwa = "Kwasna podroz";
+    skladniki[0] = { "Teczowy barwnik", "duzo" };
+    skladniki[1] = { "Susz owocowy", "duzo" };
+    skladniki[2] = { "Witamina C", "duzo" };
+}
+
+void ustawRecepture4() {
+    nazwa = "Przygoda HERAklesa";
+    skladniki[0] = { "Witamina C", "duzo" };
+    skladniki[1] = { "Susz owocowy", "malo" };
+    skladniki[2] = { "Miod waniliowy", "malo" };
+}
+
+void ustawRecepture5() {
+    nazwa = "Amsterdamski Przysmak";
+    skladniki[0] = { "Susz owocowy", "duzo" };
+    skladniki[1] = { "Miod waniliowy", "duzo" };
+    skladniki[2] = { "Witamina C", "malo" };
+}
+
+void ustawRecepture6() {
+    nazwa = "Krysztalki";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Teczowy barwnik", "malo" };
+    skladniki[2] = { "Witamina C", "duzo" };
+}
+
+void ustawRecepture7() {
+    nazwa = "Ale Xandra!";
+    skladniki[0] = { "Miod waniliowy", "duzo" };
+    skladniki[1] = { "Susz owocowy", "duzo" };
+    skladniki[2] = { "Cynamon", "duzo" };
+}
+
+void ustawRecepture8() {
+    nazwa = "O, piosenka Idy!";
+    skladniki[0] = { "Miod waniliowy", "duzo" };
+    skladniki[1] = { "Susz owocowy", "duzo" };
+    skladniki[2] = { "Cynamon", "malo" };
+}
+
+void ustawRecepture9() {
+    nazwa = "Bez nazwy";
+    skladniki[0] = { "Susz owocowy", "duzo" };
+    skladniki[1] = { "Cynamon", "duzo" };
+    skladniki[2] = { "Teczowy barwnik", "malo" };
+}
+
+void ustawRecepture10() {
+    nazwa = "Lekko-Strawny Deser";
+    skladniki[0] = { "Teczowy barwnik", "duzo" };
+    skladniki[1] = { "Cynamon", "duzo" };
+    skladniki[2] = { "Witamina C", "duzo" };
+}
+
+void ustawRecepture11() {
+    nazwa = "Krokodyl";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Witamina C", "duzo" };
+    skladniki[2] = { "Cynamon", "duzo" };
+}
+
+void ustawRecepture12() {
+    nazwa = "Jamajska zielen";
+    skladniki[0] = { "Susz owocowy", "duzo" };
+    skladniki[1] = { "Teczowy barwnik", "malo" };
+    skladniki[2] = { "Cynamon", "malo" };
+}
+
+void ustawRecepture13() {
+    nazwa = "Specjalnosc Pablo!";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Witamina C", "malo" };
+    skladniki[2] = { "Teczowy barwnik", "malo" };
+}
+
+void ustawRecepture14() {
+    nazwa = "Meskykanska Fala!";
+    skladniki[0] = { "Cukier puder", "duzo" };
+    skladniki[1] = { "Miod waniliowy", "duzo" };
+    skladniki[2] = { "Witamina C", "malo" };
+}
+
+void ustawRecepture15() {
+    nazwa = "Miekie, Delikatne Mega-Apetyczne";
+    skladniki[0] = { "Witamina C", "duzo" };
+    skladniki[1] = { "Susz owocowy", "duzo" };
+    skladniki[2] = { "Cynamon", "malo" };
+}
+
 
     void pokaz() {
         cout << "Zamowienie: " << nazwa << endl;
@@ -181,10 +284,28 @@ public:
             cout << "║               4. Wyjście z gry                ║\n";
             cout << "╚═══════════════════════════════════════════════╝\n";
     }
+    string normalizuj(string s) {
+    // Usuń spacje z przodu i końca
+    s.erase(0, s.find_first_not_of(" \t\n\r"));
+    s.erase(s.find_last_not_of(" \t\n\r") + 1);
+    // Zamień na małe litery
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    return s;
+}
 
-    double ScoreTrack() {
+    double ScoreTrack(Skladnik wybor[]) {
+        cout<<"Wywołano SCORE TRAKC------------"<<endl;
+        cout << "DEBUG: Porównuję:\n";
+for (int i = 0; i < 3; i++) {
+    cout << "- [" << wybor[i].nazwa << "] vs [" << receptura.skladniki[i].nazwa << "]\n";
+    cout << "- [" << wybor[i].ilosc << "] vs [" << receptura.skladniki[i].ilosc << "]\n";
+}
         double scoring = 0;
         for (int i = 0; i < 3; i++) {
+            string nazwaU = normalizuj(wybor[i].nazwa);
+            string nazwaR = normalizuj(receptura.skladniki[i].nazwa);
+            string iloscU = normalizuj(wybor[i].ilosc);
+            string iloscR = normalizuj(receptura.skladniki[i].ilosc);
             if (wybor[i].nazwa == receptura.skladniki[i].nazwa) {
                 scoring += 15;
             }
@@ -244,8 +365,8 @@ public:
         return true;
     }
     
-    void losoweZdarzenie(int &scoring) {
-    int zdarzenie = rand() % 5; // 0–4 (1 z 5 opcji), w tym brak zdarzenia
+    void losoweZdarzenie(double &scoring) {
+    int zdarzenie = rand() % 5; 
 
     switch (zdarzenie) {
         case 0:
@@ -304,7 +425,27 @@ public:
             if (opcja == 1) {
                 
                 klient.losuj();
-                receptura.ustawMojito();
+                //cout<<"Index: "<<klient.index<<endl;
+                //tu ustawiamy recepture 
+                
+                switch (klient.index) {
+        case 1:  receptura.ustawRecepture1();  break;
+        case 2:  receptura.ustawRecepture2();  break;
+        case 3:  receptura.ustawRecepture3();  break;
+        case 4:  receptura.ustawRecepture4();  break;
+        case 5:  receptura.ustawRecepture5();  break;
+        case 6:  receptura.ustawRecepture6();  break;
+        case 7:  receptura.ustawRecepture7();  break;
+        case 8:  receptura.ustawRecepture8();  break;
+        case 9:  receptura.ustawRecepture9();  break;
+        case 10: receptura.ustawRecepture10(); break;
+        case 11: receptura.ustawRecepture11(); break;
+        case 12: receptura.ustawRecepture12(); break;
+        case 13: receptura.ustawRecepture13(); break;
+        case 14: receptura.ustawRecepture14(); break;
+        case 15: receptura.ustawRecepture15(); break;
+        default: break;
+    }
 
                 klient.pokaz();
                 receptura.pokaz();
@@ -318,7 +459,7 @@ public:
                     getline(cin, wybor[i].ilosc);
                 }
 
-                int wynik = ScoreTrack();
+                double wynik = ScoreTrack(wybor);
                 losoweZdarzenie(wynik);  
                 zapiszScoring(wynik);
                 ReakcjaNaPunktacje(wynik);
