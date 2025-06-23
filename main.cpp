@@ -137,16 +137,12 @@ public:
 class Receptura {
 public:
     string nazwa;
+    string wskazowka;
     Skladnik skladniki[3];
 
-    void ustawMojito() {
-        nazwa = "Mojito";
-        skladniki[0] = { "woda", "duzo" };
-        skladniki[1] = { "rum", "duzo" };
-        skladniki[2] = { "mieta", "malo" };
-    }
     void ustawRecepture1() {
     nazwa = "Koka Kola";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Susz owocowy", "malo" };
     skladniki[2] = { "Miod waniliowy", "malo" };
@@ -154,6 +150,7 @@ public:
 
 void ustawRecepture2() {
     nazwa = "KRAKoski sprint";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nChce poczuć, jak moja odporność eksploduje!\n Walnij tyle, żeby kaszlnąć od zapachu!";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Witamina C", "duzo" };
     skladniki[2] = { "Cynamon", "duzo" };
@@ -161,6 +158,7 @@ void ustawRecepture2() {
 
 void ustawRecepture3() {
     nazwa = "Kwasna podroz";
+    wskazowka =  "Chcę, żeby ten cukierek krzyczał kolorami!\nKocham owoce! W każdej formie!\nChcę poczuć, jak moja odporność eksploduje!";
     skladniki[0] = { "Teczowy barwnik", "duzo" };
     skladniki[1] = { "Susz owocowy", "duzo" };
     skladniki[2] = { "Witamina C", "duzo" };
@@ -168,6 +166,7 @@ void ustawRecepture3() {
 
 void ustawRecepture4() {
     nazwa = "Przygoda HERAklesa";
+    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?";
     skladniki[0] = { "Witamina C", "duzo" };
     skladniki[1] = { "Susz owocowy", "malo" };
     skladniki[2] = { "Miod waniliowy", "malo" };
@@ -175,13 +174,15 @@ void ustawRecepture4() {
 
 void ustawRecepture5() {
     nazwa = "Amsterdamski Przysmak";
-    skladniki[0] = { "Susz owocowy", "duzo" };
+    wskazowka = "Kocham owoce! W każdej formie!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.";
+    skladniki[0] = { "Susz owocowy", "duzo" };"
     skladniki[1] = { "Miod waniliowy", "duzo" };
     skladniki[2] = { "Witamina C", "malo" };
 }
 
 void ustawRecepture6() {
     nazwa = "Krysztalki";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nKolor? Nie, nie przeszkadza mi.\nChcę poczuć, jak moja odporność eksploduje!";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Teczowy barwnik", "malo" };
     skladniki[2] = { "Witamina C", "duzo" };
@@ -189,6 +190,7 @@ void ustawRecepture6() {
 
 void ustawRecepture7() {
     nazwa = "Ale Xandra!";
+    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!";
     skladniki[0] = { "Miod waniliowy", "duzo" };
     skladniki[1] = { "Susz owocowy", "duzo" };
     skladniki[2] = { "Cynamon", "duzo" };
@@ -196,13 +198,15 @@ void ustawRecepture7() {
 
 void ustawRecepture8() {
     nazwa = "O, piosenka Idy!";
+    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.";
     skladniki[0] = { "Miod waniliowy", "duzo" };
     skladniki[1] = { "Susz owocowy", "duzo" };
     skladniki[2] = { "Cynamon", "malo" };
 }
 
 void ustawRecepture9() {
-    nazwa = "Bez nazwy";
+    nazwa = "#";
+    wskazowka = "Kocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!\nKolor? Nie, nie przeszkadza mi.";
     skladniki[0] = { "Susz owocowy", "duzo" };
     skladniki[1] = { "Cynamon", "duzo" };
     skladniki[2] = { "Teczowy barwnik", "malo" };
@@ -210,6 +214,7 @@ void ustawRecepture9() {
 
 void ustawRecepture10() {
     nazwa = "Lekko-Strawny Deser";
+    wskazowka = "Chcę, żeby ten cukierek krzyczał kolorami!\nWalnij tyle, żeby kaszlnąć od zapachu!\nChcę poczuć, jak moja odporność eksploduje!";
     skladniki[0] = { "Teczowy barwnik", "duzo" };
     skladniki[1] = { "Cynamon", "duzo" };
     skladniki[2] = { "Witamina C", "duzo" };
@@ -217,6 +222,7 @@ void ustawRecepture10() {
 
 void ustawRecepture11() {
     nazwa = "Krokodyl";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nChcę poczuć, jak moja odporność eksploduje!\nWalnij tyle, żeby kaszlnąć od zapachu!";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Witamina C", "duzo" };
     skladniki[2] = { "Cynamon", "duzo" };
@@ -224,6 +230,7 @@ void ustawRecepture11() {
 
 void ustawRecepture12() {
     nazwa = "Jamajska zielen";
+    wskazowka = "Kocham owoce! W każdej formie!\nKolor? Nie, nie przeszkadza mi.\nSzczypta – tyle co dałbyś na szarlotkę.";
     skladniki[0] = { "Susz owocowy", "duzo" };
     skladniki[1] = { "Teczowy barwnik", "malo" };
     skladniki[2] = { "Cynamon", "malo" };
@@ -231,6 +238,7 @@ void ustawRecepture12() {
 
 void ustawRecepture13() {
     nazwa = "Specjalnosc Pablo!";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nZdrowo, ale bez apteki w ustach.\nKolor? Nie, nie przeszkadza mi.";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Witamina C", "malo" };
     skladniki[2] = { "Teczowy barwnik", "malo" };
@@ -238,6 +246,7 @@ void ustawRecepture13() {
 
 void ustawRecepture14() {
     nazwa = "Meskykanska Fala!";
+    wskazowka = "Słodkość na poziomie kompotu babci!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.";
     skladniki[0] = { "Cukier puder", "duzo" };
     skladniki[1] = { "Miod waniliowy", "duzo" };
     skladniki[2] = { "Witamina C", "malo" };
@@ -245,6 +254,7 @@ void ustawRecepture14() {
 
 void ustawRecepture15() {
     nazwa = "Miekie, Delikatne Mega-Apetyczne";
+    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.";
     skladniki[0] = { "Witamina C", "duzo" };
     skladniki[1] = { "Susz owocowy", "duzo" };
     skladniki[2] = { "Cynamon", "malo" };
@@ -253,9 +263,8 @@ void ustawRecepture15() {
 
     void pokaz() {
         cout << "Zamowienie: " << nazwa << endl;
-        for (int i = 0; i < 3; ++i) {
-            cout << "- " << skladniki[i].nazwa << ": " << skladniki[i].ilosc << endl;
-        }
+        cout<<"Przechodząc do rzeczy - oto moje najskryszte pragnienia: "<<endl;
+        cout << wskazowka;
     }
 };
 
