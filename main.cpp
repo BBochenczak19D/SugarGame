@@ -55,11 +55,11 @@ public:
             "Jakbym jadla watę cukrową posypaną dźwiękiem techno.",
             "Mniam jak pierwsze piwo na klatce schodowej!",
             "Jeszcze! I jeszcze! I może być z plastikiem nawet!",
-            "Cukierek jak sen na dopalaczach – ale legalny.",
+            "Cukierek jak łyk benzyny prosto z dystrybutora - paliwo na cały dzień!.",
             "Czuję, że wraca mi wiara w ludzkość. I w słodycze.",
             "Eksplozja smaku spowodowała zwarcie neuronów. Już nigdy nie będę taki sam.",
             "Czuję, że to najlepszy cukierek w moim życiu. Aż chce mi się krzyczyć. AAAAAAAAAAAAA",
-            "Niczym wygrana Sobieskiego pod Vienną - epicka!",
+            "Niczym wygrana Sobieskiego pod Wiedniem - epicka!",
             "Za taki przysmak podbiłbym Galię dla Cezara... Poniosło mnie?",
             "Po takim cukierku to nawet Pudzian byłby pierwszy w kulach! Polska Gurom!"
         };
@@ -68,15 +68,15 @@ public:
             "No nie wiem, jakby miętowa pasta do zębów udawała lizaka.",
             "Jest okej... ale bez dreszczy.",
             "Smakuje jak herbata u cioci: ani zła, ani dobra, po prostu jest.",
-            "To chyba z tych cukierków, co się je z grzeczności.",
+            "To chyba jeden z tych cukierków, co się je z grzeczności.",
             "Jakby ktoś rozpuścił marzenie w chlorowanej wodzie.",
             "Taki smak 'meh', ale przynajmniej nie kopie jak gaz z kaloryfera.",
-            "Jakbym jadła watę, co leżała za szafą, ale z cukrem.",
+            "Jakbym jadła watę, co leżała za szafą, ale za to z brązowym cukrem.",
             "Smakuje jak niedoprawiona zupa pomidorowa. Niby bez smaku, ale kto nie lubi pomidorówki?",
             "Trochę jak obiad z mikrofalówki. Talerz gorący, jedzenie zimne.",
             "Niczym Bolesław V Wstydliwy - niby król Polski, ale nie kojarzysz...",
             "Nie, nie przybiję ci piątki. Zasłużyłeś na żółwika.",
-            "Spoko. Nic dodać, nic ująć."
+            "Spoko. Nic dodać, nic ująć. Warte ceny."
         };
 
         string zla_reakcje[] = {
@@ -85,15 +85,15 @@ public:
             "Czy to... guma do żucia po babci?",
             "Mam wrażenie, że zjadłam zapach klatki schodowej.",
             "To nie jest cukierek, to trauma w folii.",
-            "Smak jak z autobusu linii 145 w lipcu – bez klimy.",
-            "Wypluj mnie, błagam – krzyczy mój język.",
+            "Smak jak z tramwaju linii 52 w lipcu. Bez klimy...",
+            "'Wypluj mnie, błagam' – krzyczy mój język.",
             "Czuję się jakbym zdradziła swoją dietę i swoją godność.",
-            "CHCIAŁEŚ MNIE OTRUĆ?! CZŁOWIEKU, DZOWNIĘ PO SANEPID!",
+            "CHCIAŁEŚ MNIE OTRUĆ?! CZŁOWIEKU, DZWONIĘ PO SANEPID!",
             "Masz jakąś siekierę? Nie, nie ciebie. Język chce odciąć.",
             "Nie wiem czy kwas solny usunie mi z ust ten paskudny smak.",
             "Wiesz co? Właśnie straciłeś klienta! Dam ci jedną gwiazdkę na google!",
             "Jak atak Niemców na Polskę w 39' - dramat!",
-            "Nie dałbym tego nawet szcurom na trutkę!"
+            "Nie dałbym tego nawet szczurom na trutkę!"
         };
 
         // losowanie imienia i nazwiska
@@ -173,7 +173,7 @@ void ustawRecepture2() {
 }
 
 void ustawRecepture3() {
-    nazwa = "Kwasna podroz";
+    nazwa = "Kwasna (!sic) podroz";
     wskazowka =  "Chcę, żeby ten cukierek krzyczał kolorami!\nKocham owoce! W każdej formie!\nChcę poczuć, jak moja odporność eksploduje!\n";
     skladniki[0] = { "teczowy barwnik", "duzo" };
     skladniki[1] = { "susz owocowy", "duzo" };
@@ -269,7 +269,7 @@ void ustawRecepture14() {
 }
 
 void ustawRecepture15() {
-    nazwa = "Miekie, Delikatne Mega-Apetyczne\n";
+    nazwa = "Miekkie, Delikatne Mega-Apetyczne\n";
     wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.\n";
     skladniki[0] = { "witamina c", "duzo" };
     skladniki[1] = { "susz owocowy", "duzo" };
@@ -280,6 +280,7 @@ void ustawRecepture15() {
     void pokaz() {
         cout << "Zamowienie: " << nazwa << endl;
         cout<<"Przechodząc do rzeczy - oto moje najskryszte pragnienia: "<<endl;
+        cout<<endl;
         cout << wskazowka;
     }
 };
@@ -404,21 +405,21 @@ public:
             cout << "Wpadła babcia z reklamówką cebuli i powiedziała, że 'cukierek nie karmi'.\n";
             cout << "Zaczęła częstować wszystkich smalcem i narzekać na młodzież.\n";
             scoring -= 9*sqrt(scoring-3);
-            cout << "Klient się obraził. "<<scoring<<" do punktów.\n\n";
+            cout << "Klient się obraził. "<<" -"<<9*sqrt(scoring-3)<<" do punktów.\n\n";
             break;
         case 1:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "Z wentylacji wyleciał gołąb z brokatem na skrzydłach i zrobił salto.\n";
-            cout << "Klient zaniemówił, wzruszył się. 'To znak', wyszeptał.\n";
+            cout << "Klient zaniemówił, wzruszył się. 'To znak'- wyszeptał.\n";
             scoring += sqrt(scoring+4.2);
-            cout << scoring<<" do punktów za duchowość i brokat.\n\n";
+            cout << " +"<<sqrt(scoring+4.2) <<" do punktów za duchowość i brokat.\n\n";
             break;
         case 2:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "Pojawił się lokalny raper PISZCZYK MC i zaczął freestyle'ować o Twoim cukierku.\n";
             cout << "Zwrotka była średnia, ale beat się zgadzał. Klient kiwał głową.\n";
             scoring += sqrt(scoring+12);
-            cout << scoring<<" do punktów za styl\n\n";
+            cout << " +"<<sqrt(scoring+12)<<" do punktów za styl\n\n";
             break;
         case 3:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -426,11 +427,11 @@ public:
             cout << "Atmosfera zgęstniała jak budyń. Klient się zawahał.\n";
             
             scoring -= sqrt(scoring+2.5);
-            cout << scoring<<" do punktów za społeczne napięcie.\n\n";
+            cout <<" -"<<sqrt(scoring+2.5)<<" do punktów za społeczne napięcie.\n\n";
             break;
         case 4:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "Z głośnika w rogu zaczęło lecieć 'Majteczki w kropeczki'.\n";
+            cout << "Z głośnika w rogu zaczęły lecieć 'Majteczki w kropeczki'.\n";
             cout << "Wszyscy udają, że to normalne.\n\n";
             break;
          case 5:
@@ -439,15 +440,15 @@ public:
             cout << "Wszyscy stanęli na baczność, a poświęcenie dla ojczyzny stało się nie tylko obowiązkiem, ale także celem.\n";
             
             scoring += 10;
-            cout << scoring<<" do punktów za patriotyczne nastroje.\n\n";
+            cout << "+10 do punktów za patriotyczne nastroje.\n\n";
             break;
         case 6:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "Ziemia zadrżała, a z nieba robrzmiała siódma trąba. Koniec jest bliski.\n";
+            cout << "Ziemia zadrżała, a z nieba robrzmiała siódma trąba Jerychońska. Koniec jest bliski.\n";
             cout << "Klienci nalegają, żeby kontynować pracę. Ten ostatni raz chcą jeszcze zjeść cukierka.\n";
             
             scoring = 0;
-            cout << scoring<<" Koniec Świata. Za to nie ma punktów.\n\n";
+            cout <<"Koniec Świata. Za to nie ma punktów.\n\n";
             break;
         case 7:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -455,15 +456,15 @@ public:
             cout << "Wypłaty dla pracowników w starych nominałach. Gospodarka szaleje\n";
             
             scoring -= 10;
-            cout << scoring<<" do punktów za brak denominacji.\n\n";
+            cout << "-10 do punktów za brak denominacji.\n\n";
             break;            
         case 8:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "'Husaria do boju!'\n";
-            cout << "To tylko kibice Wisły.\n";
+            cout << "Spokojnie, to tylko kibice Wisły.\n";
             
             scoring -= 13;
-            cout << scoring<<" do punktów za ukrytą racę w plecaku.\n\n";
+            cout <<"-13 do punktów za ukrytą racę w plecaku.\n\n";
             break;
         case 9:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -471,14 +472,13 @@ public:
             cout << "Podobno to nie takie trudne. Wystarczą dwa słoiki masła orzechowego.\n";
             
             scoring -= 19;
-            cout << scoring<<" do punktów za uczulenie na orzechy.\n\n";
+            cout << "-19 do punktów za uczulenie na orzechy.\n\n";
             break;
         case 10:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "Poznań miasto doznań\n";
             cout << "Kraków miasto ptaków.\n";
             
-           
             cout <<"Co?\n\n";
             break;
         case 11:
@@ -487,15 +487,15 @@ public:
             cout << "A właściwie to nie akademiki tylko szafki na buty. I nie dla 400, ale 40 studentów. Nie od 2026, ale 2035.\n";
             
             scoring -= 14;
-            cout << scoring<<" do punktów za pranie pieniędzy i gniew krakowskiej młodzieży.\n\n";
+            cout << "-14 do punktów za pranie pieniędzy i gniew krakowskiej młodzieży.\n\n";
             break;
         case 12:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "Ktoś przykecił klamki w kobierzynie.\n";
+            cout << "Ktoś przykrecił klamki w kobierzynie.\n";
             cout << "Pacjenci szpitala poszukiwani na terenie Krakowa.\n";
             
             scoring += 11;
-            cout << scoring<<" do punktów za patrole sąsiedzkie.\n\n";
+            cout <<"+11 do punktów za patrole sąsiedzkie.\n\n";
             break;
         case 13:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -503,7 +503,7 @@ public:
             cout << "Wolny rynek. Klinci zainteresowali się nowym 'towarem' na mieście.\n";
             
             scoring -= scoring/2;
-            cout << scoring<<" do punktów za mniejszy utarg.\n\n";
+            cout << " -"<< scoring/2 <<" do punktów za mniejszy utarg.\n\n";
             break;
         case 14:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -511,7 +511,7 @@ public:
             cout << "Zainteresowanie jest tak wielkie, że wprowadzasz zniżkę dla ich kierunku!.\n";
             
             scoring += scoring*2;
-            cout << scoring<<" do punktów za pomocnych studentów.\n\n";
+            cout << " +"<<scoring*2<<" do punktów za pomocnych studentów.\n\n";
             break;
         case 15:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -519,13 +519,12 @@ public:
             cout << "Na twoich oczach wystrzeliło go z butów.\n";
             
             scoring += 22;
-            cout << scoring<<" do punktów za sprzedane buty\n\n";
+            cout <<"+22 do punktów za sprzedane buty\n\n";
             break;
         case 16:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "Nietzche we własnej osobie przybył do twojej budki z cukierkami!\n";
             cout << "No a potem napisał, że Bóg umarł...\n";
-            
             
             cout << " Ciężko stwierdzić, co to znaczy.\n\n";
             break;
@@ -535,7 +534,7 @@ public:
             cout << "TOYOTA COROLLA?!\n";
             
             scoring -= 17;
-            cout << scoring<<" do punktów za to, że nadal nie wiesz jak znalazła się w powietrzu.\n\n";
+            cout <<"-17 do punktów za to, że nadal nie wiesz jak znalazła się w powietrzu.\n\n";
             break;
         case 18:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -543,23 +542,22 @@ public:
             cout << "Rzucasz ten biznes. Właśnie wygrałeś życie.\n";
             
             scoring += 100;
-            cout << scoring<<" do punktów za tatę.\n\n";
+            cout <<"+100 do punktów za tatę.\n\n";
             break;
         case 19:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "'Jestem tobą z przyszłości! Postaw wszytskie pieniądze na wygraną Polski w Euro 2032!'\n";
+            cout << "'Jestem tobą z przyszłości! Postaw wszystkie pieniądze na wygraną Polski w Euro 2032!'\n";
             cout << "Jeszcze 7 lat. To sobie poczekamy...\n";
             
-           
             cout << "Za 7 lat może dostaniesz jakieś punkty.\n\n";
             break;
         case 20:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "Ktoś z tyłu krzyknął: 'Jestem przed tobą!'\n";
+            cout << "Ktoś z tyłu krzyknął: 'Jestem przed tobą!'. Rozglądnąłeś się dookoła.\n";
             cout << "Pora przestać słuchać polskiego rapu. Rzuciło ci się na mózg.\n";
             
             scoring -= 69;
-            cout << scoring<<" do punktów za zryty beret.\n\n";
+            cout <<"-69 do punktów za zryty beret.\n\n";
             break;
         case 21:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
@@ -567,15 +565,15 @@ public:
             cout << "To, trzeba przyznać, całkiem realistyczna.\n";
             
             scoring += 4.20;
-            cout << scoring<<" do punktów za nadzieję i chęć do dalszej ciężkiej pracy.\n\n";
+            cout <<"=4.20 do punktów za nadzieję i chęć do dalszej ciężkiej pracy.\n\n";
             break;
         case 22:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
-            cout << "'Obywatelki i obywatele Polskiej Rzeczypospolitej Ludowej!Zwracam się dziś do Was jako żołnierz i jako szef rządu polskiego.'\n";
+            cout << "'Obywatelki i obywatele Polskiej Rzeczypospolitej Ludowej!Zwracam się dziś do Was jako żołnierz i jako szef rządu polskiego...'\n";
             cout << "Chyba musiało ci się przysnąć. Ale to tylko zły sen...\n";
             
             scoring += 33;
-            cout << scoring<<" do punktów za to, że jeszcze Polska nie zginęła!\n\n";
+            cout <<"+33 do punktów za to, że jeszcze Polska nie zginęła!\n\n";
             break;
         
         default:
