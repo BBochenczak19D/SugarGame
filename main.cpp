@@ -344,7 +344,7 @@ public:
     }
 
     void ReakcjaNaPunktacje(double scoring) {
-        if (scoring > 145.00 ){
+        if (scoring > 140.00 ){
             cout<<endl;
             cout<<"Widzisz jak dusza opuszcza ciało klienta, a następnie powoli wznosi się w kierunku rozwartego nieba./nŚwięty Piotr macha Ci uśmiechnięty i słyszysz jak swoim ciepłym, kojącym głosem mówi:/n'Dobra robota synu. Jesteś prawdziwym Cukiermanem'.";
         } else if (scoring >= 70.00) {
@@ -388,14 +388,6 @@ public:
         }
     }
 
-    bool porownaj() {
-        for (int i = 0; i < 3; ++i) {
-            if (wybor[i].nazwa != receptura.skladniki[i].nazwa || wybor[i].ilosc != receptura.skladniki[i].ilosc) {
-                return false;
-            }
-        }
-        return true;
-    }
     
     void losoweZdarzenie(double &scoring) {
         int zdarzenie = rand() % 23; 
@@ -510,7 +502,7 @@ public:
             cout << "EPI zaczęło sesję! Studenci codziennie przychodzą po paczkę cukierków!\n";
             cout << "Zainteresowanie jest tak wielkie, że wprowadzasz zniżkę dla ich kierunku!.\n";
             
-            scoring += scoring*2;
+            scoring += scoring*0.75;
             cout << " +"<<scoring*2<<" do punktów za pomocnych studentów.\n\n";
             break;
         case 15:
