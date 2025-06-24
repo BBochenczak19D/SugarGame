@@ -28,8 +28,8 @@ public:
     }
 
     void losuj() {
-        string imiona[] = { "Anna", "Jan", "Ola", "Tomek", "Zosia" };
-        string nazwiska[] = { "Nowak", "Kowalski", "Wisniewski", "Kaczmarek", "Dabrowska" };
+        string imiona[] = {  "Amelia", "Miki", "Waldek", "Jerzy", "Janek", "Gustwa", "Cyprian", "Szaweł", "Konrad", "Tosiek", "Paweł", "Leszek", "Krzysiu", "Misiek", "Witka", "Brygida", "Majka", "Kornelia", "Ryszard", "Leszek", "Bogdan", "Piotr", "Aniela", "Weronika"};
+        string nazwiska[] = {"Winodom", "Tytus", "Biały", "Różowy", "Głębia", "Frędzel", "Racicki", "Dobromski", "Kobejn", "Górski", "Szczotkowski", "Wałęsowski", "Krawiecki", "Wiśnia", "Hougowicz", "Włócznia", "Sajros", "Miłek", "Jakubowski", "Majewski", "Barbarski", "Witczak", "Bogusz", "Sowa" };
         string historyjki[] = {
         "Hej, słyszałem o Tobie od mojego kolegi! Podobno masz najlepsze cukierki w mieście! To prawda, że pierwszy za darmo?",
         "Wiem, że wiszę Ci trochę kasy za ostatnie cukierki, ale co powiesz na wymianę. Mogę oddać Ci moją mamę…",
@@ -56,7 +56,12 @@ public:
             "Mniam jak pierwsze piwo na klatce schodowej!",
             "Jeszcze! I jeszcze! I może być z plastikiem nawet!",
             "Cukierek jak sen na dopalaczach – ale legalny.",
-            "Czuję, że wraca mi wiara w ludzkość. I w słodycze."
+            "Czuję, że wraca mi wiara w ludzkość. I w słodycze.",
+            "Eksplozja smaku spowodowała zwarcie neuronów. Już nigdy nie będę taki sam.",
+            "Czuję, że to najlepszy cukierek w moim życiu. Aż chce mi się krzyczyć. AAAAAAAAAAAAA",
+            "Niczym wygrana Sobieskiego pod Vienną - epicka!",
+            "Za taki przysmak podbiłbym Galię dla Cezara... Poniosło mnie?",
+            "Po takim cukierku to nawet Pudzian byłby pierwszy w kulach! Polska Gurom!"
         };
 
         string srednia_reakcje[] = {
@@ -66,7 +71,12 @@ public:
             "To chyba z tych cukierków, co się je z grzeczności.",
             "Jakby ktoś rozpuścił marzenie w chlorowanej wodzie.",
             "Taki smak 'meh', ale przynajmniej nie kopie jak gaz z kaloryfera.",
-            "Jakbym jadła watę, co leżała za szafą, ale z cukrem."
+            "Jakbym jadła watę, co leżała za szafą, ale z cukrem.",
+            "Smakuje jak niedoprawiona zupa pomidorowa. Niby bez smaku, ale kto nie lubi pomidorówki?",
+            "Trochę jak obiad z mikrofalówki. Talerz gorący, jedzenie zimne.",
+            "Niczym Bolesław V Wstydliwy - niby król Polski, ale nie kojarzysz...",
+            "Nie, nie przybiję ci piątki. Zasłużyłeś na żółwika.",
+            "Spoko. Nic dodać, nic ująć."
         };
 
         string zla_reakcje[] = {
@@ -77,12 +87,18 @@ public:
             "To nie jest cukierek, to trauma w folii.",
             "Smak jak z autobusu linii 145 w lipcu – bez klimy.",
             "Wypluj mnie, błagam – krzyczy mój język.",
-            "Czuję się jakbym zdradziła swoją dietę i swoją godność."
+            "Czuję się jakbym zdradziła swoją dietę i swoją godność.",
+            "CHCIAŁEŚ MNIE OTRUĆ?! CZŁOWIEKU, DZOWNIĘ PO SANEPID!",
+            "Masz jakąś siekierę? Nie, nie ciebie. Język chce odciąć.",
+            "Nie wiem czy kwas solny usunie mi z ust ten paskudny smak.",
+            "Wiesz co? Właśnie straciłeś klienta! Dam ci jedną gwiazdkę na google!",
+            "Jak atak Niemców na Polskę w 39' - dramat!",
+            "Nie dałbym tego nawet szcurom na trutkę!"
         };
 
         // losowanie imienia i nazwiska
-        imie = imiona[rand() % 5];
-        nazwisko = nazwiska[rand() % 5];
+        imie = imiona[rand() % 24];
+        nazwisko = nazwiska[rand() % 24];
 
         // losowanie unikalnej historyjki
         index = 0;
@@ -95,9 +111,9 @@ public:
         historyjka = historyjki[index];
 
         // losowanie reakcji
-        dobra_reakcja = dobra_reakcje[rand() % 8];
-        srednia_reakcja = srednia_reakcje[rand() % 7];
-        zla_reakcja = zla_reakcje[rand() % 8];
+        dobra_reakcja = dobra_reakcje[rand() % 13];
+        srednia_reakcja = srednia_reakcje[rand() % 12];
+        zla_reakcja = zla_reakcje[rand() % 14];
     }
 
   
@@ -303,7 +319,7 @@ public:
 }
 
     double ScoreTrack(Skladnik wybor[]) {
-        cout<<"Wywołano SCORE TRAKC------------"<<endl;
+        cout<<"Wywołano SCORE TRACK------------"<<endl;
         cout << "DEBUG: Porównuję:\n";
 for (int i = 0; i < 3; i++) {
     cout << "- [" << wybor[i].nazwa << "] vs [" << receptura.skladniki[i].nazwa << "]\n";
@@ -326,7 +342,9 @@ for (int i = 0; i < 3; i++) {
     }
 
     void ReakcjaNaPunktacje(double scoring) {
-        if (scoring > 70.00) {
+        if (scoring > 145.00 ){
+            cout<<"Widzisz jak dusza opuszcza ciało klienta, a następnie powoli wznosi się w kierunku rozwartego nieba./nŚwięty Piotr macha Ci uśmiechnięty i słyszysz jak swoim ciepłym, kojącym głosem mówi:/n'Dobra robota synu. Jesteś prawdziwym Cukiermanem'.";
+        } else if (scoring >= 70.00) {
             cout << klient.dobra_reakcja << endl;
         } else if (scoring >= 45.00) {
             cout << klient.srednia_reakcja << endl;
@@ -613,7 +631,7 @@ for (int i = 0; i < 3; i++) {
                 losoweZdarzenie(wynik);  
                 zapiszScoring(wynik);
                 ReakcjaNaPunktacje(wynik);
-                cout<< "- ------ test wyniku "<<wynik<<endl; 
+                // cout<< "- ------ test wyniku "<<wynik<<endl; 
                 
                 string again;
                 cout << "\nZagrać jeszcze raz? (tak/nie): ";
@@ -621,7 +639,7 @@ for (int i = 0; i < 3; i++) {
                 if (again != "tak" && again != "Tak" && again != "TAK") break;
 
             } else if (opcja == 2) {
-                cout << "╔════════════════════════════════════════════════════════╗\n";
+            cout << "╔════════════════════════════════════════════════════════╗\n";
             cout << "║              ➤ Twórz zwariowane cukierki!              ║\n";
             cout << "║════════════════════════════════════════════════════════║\n";
             cout << "║                ➤ Mieszaj 5 składników:                 ║\n";
@@ -630,12 +648,13 @@ for (int i = 0; i < 3; i++) {
             cout << "║                     - składnik3                        ║\n";
             cout << "║                     - składnik4                        ║\n";
             cout << "║                     - składnik5                        ║\n";
+            cout << "║                     - składnik6                        ║\n";
             cout << "║════════════════════════════════════════════════════════║\n";
-            cout << "║           ➤ Wybierz proporcje: mało / dużo             ║\n";
-            cout << "║           ➤ Traf w przepis lub stwórz nowy!            ║\n";
-            cout << "║           ➤ Śledź reakcje klientów!                    ║\n";
+            cout << "║           ➤ Wybierz proporcje: mało / dużo            ║\n";
+            cout << "║           ➤ Traf w przepis lub stwórz nowy!           ║\n";
+            cout << "║           ➤ Śledź reakcje klientów!                   ║\n";
             cout << "║════════════════════════════════════════════════════════║\n";
-            cout << "║          Cel: Zdobądź tytuł Mistrza Słodyczy!          ║\n";
+            cout << "║          Cel: Zdobądź tytuł Cukiermana      !          ║\n";
             cout << "╠════════════════════════════════════════════════════════╣\n";
             cout << "║           Wciśnij dowolny znak oraz ENTER              ║\n";
             cout << "║                          i                             ║\n";
