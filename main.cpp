@@ -22,12 +22,12 @@ public:
 
     static bool uzyteHistoryjki[15]; // Do śledzenia użytych historyjek
 
-    static void resetujUzycie() {
-        for (int i = 0; i < 6; ++i)
-            uzyteHistoryjki[i] = false;
-    }
+        static void resetujUzycie() {
+            for (int i = 0; i < 6; ++i)
+                uzyteHistoryjki[i] = false;
+        }
 
-    void losuj() {
+        void losuj() {
         string imiona[] = {  "Amelia", "Miki", "Waldek", "Jerzy", "Janek", "Gustwa", "Cyprian", "Szaweł", "Konrad", "Tosiek", "Paweł", "Leszek", "Krzysiu", "Misiek", "Witka", "Brygida", "Majka", "Kornelia", "Ryszard", "Leszek", "Bogdan", "Piotr", "Aniela", "Weronika"};
         string nazwiska[] = {"Winodom", "Tytus", "Biały", "Różowy", "Głębia", "Frędzel", "Racicki", "Dobromski", "Kobejn", "Górski", "Szczotkowski", "Wałęsowski", "Krawiecki", "Wiśnia", "Hougowicz", "Włócznia", "Sajros", "Miłek", "Jakubowski", "Majewski", "Barbarski", "Witczak", "Bogusz", "Sowa" };
         string historyjki[] = {
@@ -46,7 +46,7 @@ public:
         "Jestem zrozpaczony. Nie dostałem się na ASP. To chyba znak od losu, że pora zająć się polityką…",
         "Zawsze mam przy sobie łyżeczkę, bo piję dużo kawy i brzydzę się cudzych sztućców. A zapalniczka leżała na drodze…",
         "Oglądałeś Matrixa? Którą tabletkę byś wybrał? Ja obie."
-    };
+        };
 
         string dobra_reakcje[] = {
             "Smakuje jak wakacje w Radomiu z 2003!",
@@ -134,13 +134,13 @@ public:
      static void wyswietlSklep() {
 
         string listaSkladnikow[] = {
-    "Cukier puder",
-    "Susz owocowy",
-    "Tęczowy barwnik",
-    "Miód waniliowy",
-    "Witamina C",
-    "Cynamon"
-};
+            "> cukier puder",
+            "> susz owocowy",
+            "> teczowy barwnik",
+            "> miod waniliowy",
+            "> witamina c",
+            "> cynamon"
+            };
 
         cout << "=== SKLADNIKI DO WYBORU ===" << endl;
         for (int i = 0; i < 6; ++i) {
@@ -158,122 +158,122 @@ public:
 
     void ustawRecepture1() {
     nazwa = "Koka Kola";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?";
-    skladniki[0] = { "Cukier puder", "duzo" };
-    skladniki[1] = { "Susz owocowy", "malo" };
-    skladniki[2] = { "Miod waniliowy", "malo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?\n";
+    skladniki[0] = { "cukier puder", "duzo" };
+    skladniki[1] = { "susz owocowy", "malo" };
+    skladniki[2] = { "miod waniliowy", "malo" };
 }
 
 void ustawRecepture2() {
     nazwa = "KRAKoski sprint";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nChce poczuć, jak moja odporność eksploduje!\n Walnij tyle, żeby kaszlnąć od zapachu!";
-    skladniki[0] = { "Cukier puder", "duzo" };
-    skladniki[1] = { "Witamina C", "duzo" };
-    skladniki[2] = { "Cynamon", "duzo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nChce poczuć, jak moja odporność eksploduje!\n Walnij tyle, żeby kaszlnąć od zapachu!\n";
+    skladniki[0] = { "cukier puder", "duzo" };
+    skladniki[1] = { "witamina c", "duzo" };
+    skladniki[2] = { "cynamon", "duzo" };
 }
 
 void ustawRecepture3() {
     nazwa = "Kwasna podroz";
-    wskazowka =  "Chcę, żeby ten cukierek krzyczał kolorami!\nKocham owoce! W każdej formie!\nChcę poczuć, jak moja odporność eksploduje!";
-    skladniki[0] = { "Teczowy barwnik", "duzo" };
-    skladniki[1] = { "Susz owocowy", "duzo" };
-    skladniki[2] = { "Witamina C", "duzo" };
+    wskazowka =  "Chcę, żeby ten cukierek krzyczał kolorami!\nKocham owoce! W każdej formie!\nChcę poczuć, jak moja odporność eksploduje!\n";
+    skladniki[0] = { "teczowy barwnik", "duzo" };
+    skladniki[1] = { "susz owocowy", "duzo" };
+    skladniki[2] = { "witamina c", "duzo" };
 }
 
 void ustawRecepture4() {
     nazwa = "Przygoda HERAklesa";
-    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?";
-    skladniki[0] = { "Witamina C", "duzo" };
-    skladniki[1] = { "Susz owocowy", "malo" };
-    skladniki[2] = { "Miod waniliowy", "malo" };
+    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nOwoce są zdrowe. Ale ja nie lubię, jak jest zbyt zdrowo.\nMiodzio. Ej, nie przesadzasz trochę?\n";
+    skladniki[0] = { "witamina c", "duzo" };
+    skladniki[1] = { "susz owocowy", "malo" };
+    skladniki[2] = { "miod waniliowy", "malo" };
 }
 
 void ustawRecepture5() {
     nazwa = "Amsterdamski Przysmak";
-    wskazowka = "Kocham owoce! W każdej formie!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.";
-    skladniki[0] = { "Susz owocowy", "duzo" };"
-    skladniki[1] = { "Miod waniliowy", "duzo" };
-    skladniki[2] = { "Witamina C", "malo" };
+    wskazowka = "Kocham owoce! W każdej formie!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.\n";
+    skladniki[0] = { "susz owocowy", "duzo" };
+    skladniki[1] = { "miod waniliowy", "duzo" };
+    skladniki[2] = { "witamina C", "malo" };
 }
 
 void ustawRecepture6() {
     nazwa = "Krysztalki";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nKolor? Nie, nie przeszkadza mi.\nChcę poczuć, jak moja odporność eksploduje!";
-    skladniki[0] = { "Cukier puder", "duzo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nKolor? Nie, nie przeszkadza mi.\nChcę poczuć, jak moja odporność eksploduje!\n";
+    skladniki[0] = { "cukier puder", "duzo" };
     skladniki[1] = { "Teczowy barwnik", "malo" };
-    skladniki[2] = { "Witamina C", "duzo" };
+    skladniki[2] = { "witamina C", "duzo" };
 }
 
 void ustawRecepture7() {
     nazwa = "Ale Xandra!";
-    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!";
-    skladniki[0] = { "Miod waniliowy", "duzo" };
-    skladniki[1] = { "Susz owocowy", "duzo" };
-    skladniki[2] = { "Cynamon", "duzo" };
+    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!\n";
+    skladniki[0] = { "miod waniliowy", "duzo" };
+    skladniki[1] = { "susz owocowy", "duzo" };
+    skladniki[2] = { "cynamon", "duzo" };
 }
 
 void ustawRecepture8() {
     nazwa = "O, piosenka Idy!";
-    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.";
-    skladniki[0] = { "Miod waniliowy", "duzo" };
-    skladniki[1] = { "Susz owocowy", "duzo" };
-    skladniki[2] = { "Cynamon", "malo" };
+    wskazowka = "Lubię, jak zęby mi się kleją!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.\n";
+    skladniki[0] = { "miod waniliowy", "duzo" };
+    skladniki[1] = { "susz owocowy", "duzo" };
+    skladniki[2] = { "cynamon", "malo" };
 }
 
 void ustawRecepture9() {
     nazwa = "#";
-    wskazowka = "Kocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!\nKolor? Nie, nie przeszkadza mi.";
-    skladniki[0] = { "Susz owocowy", "duzo" };
-    skladniki[1] = { "Cynamon", "duzo" };
-    skladniki[2] = { "Teczowy barwnik", "malo" };
+    wskazowka = "Kocham owoce! W każdej formie!\nWalnij tyle, żeby kaszlnąć od zapachu!\nKolor? Nie, nie przeszkadza mi.\n";
+    skladniki[0] = { "susz owocowy", "duzo" };
+    skladniki[1] = { "cynamon", "duzo" };
+    skladniki[2] = { "teczowy barwnik", "malo" };
 }
 
 void ustawRecepture10() {
     nazwa = "Lekko-Strawny Deser";
-    wskazowka = "Chcę, żeby ten cukierek krzyczał kolorami!\nWalnij tyle, żeby kaszlnąć od zapachu!\nChcę poczuć, jak moja odporność eksploduje!";
-    skladniki[0] = { "Teczowy barwnik", "duzo" };
-    skladniki[1] = { "Cynamon", "duzo" };
-    skladniki[2] = { "Witamina C", "duzo" };
+    wskazowka = "Chcę, żeby ten cukierek krzyczał kolorami!\nWalnij tyle, żeby kaszlnąć od zapachu!\nChcę poczuć, jak moja odporność eksploduje!\n";
+    skladniki[0] = { "teczowy barwnik", "duzo" };
+    skladniki[1] = { "cynamon", "duzo" };
+    skladniki[2] = { "witamina C", "duzo" };
 }
 
 void ustawRecepture11() {
     nazwa = "Krokodyl";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nChcę poczuć, jak moja odporność eksploduje!\nWalnij tyle, żeby kaszlnąć od zapachu!";
-    skladniki[0] = { "Cukier puder", "duzo" };
-    skladniki[1] = { "Witamina C", "duzo" };
-    skladniki[2] = { "Cynamon", "duzo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nChcę poczuć, jak moja odporność eksploduje!\nWalnij tyle, żeby kaszlnąć od zapachu!\n";
+    skladniki[0] = { "cukier puder", "duzo" };
+    skladniki[1] = { "witamina c", "duzo" };
+    skladniki[2] = { "cynamon", "duzo" };
 }
 
 void ustawRecepture12() {
     nazwa = "Jamajska zielen";
-    wskazowka = "Kocham owoce! W każdej formie!\nKolor? Nie, nie przeszkadza mi.\nSzczypta – tyle co dałbyś na szarlotkę.";
-    skladniki[0] = { "Susz owocowy", "duzo" };
-    skladniki[1] = { "Teczowy barwnik", "malo" };
-    skladniki[2] = { "Cynamon", "malo" };
+    wskazowka = "Kocham owoce! W każdej formie!\nKolor? Nie, nie przeszkadza mi.\nSzczypta – tyle co dałbyś na szarlotkę.\n";
+    skladniki[0] = { "susz owocowy", "duzo" };
+    skladniki[1] = { "teczowy barwnik", "malo" };
+    skladniki[2] = { "cynamon", "malo" };
 }
 
 void ustawRecepture13() {
     nazwa = "Specjalnosc Pablo!";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nZdrowo, ale bez apteki w ustach.\nKolor? Nie, nie przeszkadza mi.";
-    skladniki[0] = { "Cukier puder", "duzo" };
-    skladniki[1] = { "Witamina C", "malo" };
-    skladniki[2] = { "Teczowy barwnik", "malo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nZdrowo, ale bez apteki w ustach.\nKolor? Nie, nie przeszkadza mi.\n";
+    skladniki[0] = { "cukier puder", "duzo" };
+    skladniki[1] = { "witamina c", "malo" };
+    skladniki[2] = { "teczowy barwnik", "malo" };
 }
 
 void ustawRecepture14() {
     nazwa = "Meskykanska Fala!";
-    wskazowka = "Słodkość na poziomie kompotu babci!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.";
-    skladniki[0] = { "Cukier puder", "duzo" };
-    skladniki[1] = { "Miod waniliowy", "duzo" };
-    skladniki[2] = { "Witamina C", "malo" };
+    wskazowka = "Słodkość na poziomie kompotu babci!\nLubię, jak zęby mi się kleją!\nZdrowo, ale bez apteki w ustach.\n";
+    skladniki[0] = { "cukier puder", "duzo" };
+    skladniki[1] = { "miod waniliowy", "duzo" };
+    skladniki[2] = { "witamina c", "malo" };
 }
 
 void ustawRecepture15() {
-    nazwa = "Miekie, Delikatne Mega-Apetyczne";
-    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.";
-    skladniki[0] = { "Witamina C", "duzo" };
-    skladniki[1] = { "Susz owocowy", "duzo" };
-    skladniki[2] = { "Cynamon", "malo" };
+    nazwa = "Miekie, Delikatne Mega-Apetyczne\n";
+    wskazowka = "Chcę poczuć, jak moja odporność eksploduje!\nKocham owoce! W każdej formie!\nSzczypta – tyle co dałbyś na szarlotkę.\n";
+    skladniki[0] = { "witamina c", "duzo" };
+    skladniki[1] = { "susz owocowy", "duzo" };
+    skladniki[2] = { "cynamon", "malo" };
 }
 
 
@@ -310,21 +310,22 @@ public:
             cout << "╚═══════════════════════════════════════════════╝\n";
     }
     string normalizuj(string s) {
-    // Usuń spacje z przodu i końca
-    s.erase(0, s.find_first_not_of(" \t\n\r"));
-    s.erase(s.find_last_not_of(" \t\n\r") + 1);
-    // Zamień na małe litery
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
-    return s;
+        // Usuń spacje z przodu i końca
+        s.erase(0, s.find_first_not_of(" \t\n\r"));
+        s.erase(s.find_last_not_of(" \t\n\r") + 1);
+        // Zamień na małe litery
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        return s;
 }
 
     double ScoreTrack(Skladnik wybor[]) {
-        cout<<"Wywołano SCORE TRACK------------"<<endl;
+        /*cout<<"Wywołano SCORE TRACK------------"<<endl;
         cout << "DEBUG: Porównuję:\n";
-for (int i = 0; i < 3; i++) {
-    cout << "- [" << wybor[i].nazwa << "] vs [" << receptura.skladniki[i].nazwa << "]\n";
-    cout << "- [" << wybor[i].ilosc << "] vs [" << receptura.skladniki[i].ilosc << "]\n";
-}
+        for (int i = 0; i < 3; i++) {
+        cout << "- [" << wybor[i].nazwa << "] vs [" << receptura.skladniki[i].nazwa << "]\n";
+        cout << "- [" << wybor[i].ilosc << "] vs [" << receptura.skladniki[i].ilosc << "]\n";
+        }*/
+        
         double scoring = 0;
         for (int i = 0; i < 3; i++) {
             string nazwaU = normalizuj(wybor[i].nazwa);
@@ -343,15 +344,16 @@ for (int i = 0; i < 3; i++) {
 
     void ReakcjaNaPunktacje(double scoring) {
         if (scoring > 145.00 ){
+            cout<<endl;
             cout<<"Widzisz jak dusza opuszcza ciało klienta, a następnie powoli wznosi się w kierunku rozwartego nieba./nŚwięty Piotr macha Ci uśmiechnięty i słyszysz jak swoim ciepłym, kojącym głosem mówi:/n'Dobra robota synu. Jesteś prawdziwym Cukiermanem'.";
         } else if (scoring >= 70.00) {
-            cout << klient.dobra_reakcja << endl;
+            cout << "\n"<<klient.dobra_reakcja << endl;
         } else if (scoring >= 45.00) {
-            cout << klient.srednia_reakcja << endl;
+            cout << "\n"<<klient.srednia_reakcja << endl;
         } else if (scoring >= 10.00) {
-            cout << klient.zla_reakcja << endl;
+            cout << "\n"<<klient.zla_reakcja << endl;
         } else {
-            cout << "Klient płacze... nawet nie da się tego opisać." << endl;
+            cout <<"\n"<< "Klient płacze... nawet nie da się tego opisać." << endl;
         }
     }
 
@@ -364,8 +366,10 @@ for (int i = 0; i < 3; i++) {
     }
 
     void odczytajScoring() {
+        
         ifstream plik("score.txt");
         int score, licznik = 1;
+        
         if (plik.is_open()) {
             cout << "╔═════════════════════════════════════╗\n";
             cout << "║     T A B E L A   W Y N I K Ó W     ║\n";
@@ -393,9 +397,8 @@ for (int i = 0; i < 3; i++) {
     }
     
     void losoweZdarzenie(double &scoring) {
-    int zdarzenie = rand() % 23; 
-
-    switch (zdarzenie) {
+        int zdarzenie = rand() % 23; 
+        switch (zdarzenie) {
         case 0:
             cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
             cout << "Wpadła babcia z reklamówką cebuli i powiedziała, że 'cukierek nie karmi'.\n";
@@ -579,7 +582,7 @@ for (int i = 0; i < 3; i++) {
             // brak zdarzenia
             break;
     }
-}
+    }
 
 
     void start() {
@@ -587,8 +590,11 @@ for (int i = 0; i < 3; i++) {
         int opcja;
         start:
         while (true) {
+            
             menu();
+            cout<<endl;
             cin >> opcja;
+            cout<<endl;
             cin.ignore();
             if (opcja == 1) {
                 
@@ -616,8 +622,12 @@ for (int i = 0; i < 3; i++) {
     }
 
                 klient.pokaz();
+                cout<<endl;
                 receptura.pokaz();
+                cout<<endl;
                 Skladnik::wyswietlSklep();
+                cout<<endl;
+                cout<<endl;
 
                 cout << "\nDodaj 3 skladniki (nazwa + malo/duzo):\n";
                 for (int i = 0; i < 3; ++i) {
@@ -626,12 +636,27 @@ for (int i = 0; i < 3; i++) {
                     cout << "  Ilosc (malo/duzo): ";
                     getline(cin, wybor[i].ilosc);
                 }
+                cout<<endl;
+                cout<<endl;
 
                 double wynik = ScoreTrack(wybor);
+                
+                //cout<< "- ------ test wyniku przed zdarzeniem: "<<wynik<<endl; 
+                
+                cout<<endl;
+                
                 losoweZdarzenie(wynik);  
+                
+                cout<<endl;
+                
                 zapiszScoring(wynik);
+                
                 ReakcjaNaPunktacje(wynik);
-                // cout<< "- ------ test wyniku "<<wynik<<endl; 
+                
+                cout<< "- ------ Twoj wynik: "<<wynik<<endl; 
+                
+                cout<<endl;
+                cout<<endl;
                 
                 string again;
                 cout << "\nZagrać jeszcze raz? (tak/nie): ";
@@ -639,42 +664,46 @@ for (int i = 0; i < 3; i++) {
                 if (again != "tak" && again != "Tak" && again != "TAK") break;
 
             } else if (opcja == 2) {
-            cout << "╔════════════════════════════════════════════════════════╗\n";
-            cout << "║              ➤ Twórz zwariowane cukierki!              ║\n";
-            cout << "║════════════════════════════════════════════════════════║\n";
-            cout << "║                ➤ Mieszaj 5 składników:                 ║\n";
-            cout << "║                     - składnik1                        ║\n";
-            cout << "║                     - składnik2                        ║\n";
-            cout << "║                     - składnik3                        ║\n";
-            cout << "║                     - składnik4                        ║\n";
-            cout << "║                     - składnik5                        ║\n";
-            cout << "║                     - składnik6                        ║\n";
-            cout << "║════════════════════════════════════════════════════════║\n";
-            cout << "║           ➤ Wybierz proporcje: mało / dużo            ║\n";
-            cout << "║           ➤ Traf w przepis lub stwórz nowy!           ║\n";
-            cout << "║           ➤ Śledź reakcje klientów!                   ║\n";
-            cout << "║════════════════════════════════════════════════════════║\n";
-            cout << "║          Cel: Zdobądź tytuł Cukiermana      !          ║\n";
-            cout << "╠════════════════════════════════════════════════════════╣\n";
-            cout << "║           Wciśnij dowolny znak oraz ENTER              ║\n";
-            cout << "║                          i                             ║\n";
-            cout << "║            zacznij zanim klient ucieknie!              ║\n";
-            cout << "╚════════════════════════════════════════════════════════╝\n";
-                char znak;
-                   cin >> znak;
-            goto start;
+                    cout << "╔════════════════════════════════════════════════════════╗\n";
+                    cout << "║              ➤ Twórz zwariowane cukierki!              ║\n";
+                    cout << "║════════════════════════════════════════════════════════║\n";
+                    cout << "║                ➤ Mieszaj 5 składników:                 ║\n";
+                    cout << "║                     - składnik1                        ║\n";
+                    cout << "║                     - składnik2                        ║\n";
+                    cout << "║                     - składnik3                        ║\n";
+                    cout << "║                     - składnik4                        ║\n";
+                    cout << "║                     - składnik5                        ║\n";
+                    cout << "║                     - składnik6                        ║\n";
+                    cout << "║════════════════════════════════════════════════════════║\n";
+                    cout << "║           ➤ Wybierz proporcje: mało / dużo            ║\n";
+                    cout << "║           ➤ Traf w przepis lub stwórz nowy!           ║\n";
+                    cout << "║           ➤ Śledź reakcje klientów!                   ║\n";
+                    cout << "║════════════════════════════════════════════════════════║\n";
+                    cout << "║          Cel: Zdobądź tytuł Cukiermana      !          ║\n";
+                    cout << "╠════════════════════════════════════════════════════════╣\n";
+                    cout << "║           Wciśnij dowolny znak oraz ENTER              ║\n";
+                    cout << "║                          i                             ║\n";
+                    cout << "║            zacznij zanim klient ucieknie!              ║\n";
+                    cout << "╚════════════════════════════════════════════════════════╝\n";
+                    cout<<endl;
+                    cout<<endl;
+                    char znak;
+                    cin >> znak;
+                    goto start;
+                    
             } else if (opcja == 3) {
-                odczytajScoring();
+                        odczytajScoring();
+                        
             } else {
-                cout << "\n";
-                cout << "╔══════════════════════════════════════╗\n";
-                cout << "║                                      ║\n";
-                cout << "║   DZIĘKUJEMY ZA GRĘ! DO ZOBACZENIA!  ║\n";
-                cout << "║                                      ║\n";
-                cout << "╚══════════════════════════════════════╝\n";
-                cout << "\n";
-                break;
-            }
+                    cout << "\n";
+                    cout << "╔══════════════════════════════════════╗\n";
+                    cout << "║                                      ║\n";
+                    cout << "║   DZIĘKUJEMY ZA GRĘ! DO ZOBACZENIA!  ║\n";
+                    cout << "║                                      ║\n";
+                    cout << "╚══════════════════════════════════════╝\n";
+                    cout << "\n";
+                    break;
+                }
         }
     }
 };
