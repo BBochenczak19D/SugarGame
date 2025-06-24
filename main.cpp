@@ -332,10 +332,10 @@ public:
             string nazwaR = normalizuj(receptura.skladniki[i].nazwa);
             string iloscU = normalizuj(wybor[i].ilosc);
             string iloscR = normalizuj(receptura.skladniki[i].ilosc);
-            if (wybor[i].nazwa == receptura.skladniki[i].nazwa) {
+            if (nazwaU == nazwaR) {
                 scoring += 15;
             }
-            if (wybor[i].ilosc == receptura.skladniki[i].ilosc) {
+            if (iloscU == iloscR) {
                 scoring += 10;
             }
         }
