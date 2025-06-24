@@ -366,7 +366,7 @@ for (int i = 0; i < 3; i++) {
     }
     
     void losoweZdarzenie(double &scoring) {
-    int zdarzenie = rand() % 5; 
+    int zdarzenie = rand() % 23; 
 
     switch (zdarzenie) {
         case 0:
@@ -403,9 +403,150 @@ for (int i = 0; i < 3; i++) {
             cout << "Z głośnika w rogu zaczęło lecieć 'Majteczki w kropeczki'.\n";
             cout << "Wszyscy udają, że to normalne.\n\n";
             break;
+         case 5:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Z radia robrzmiał Mazurek Dąbrowskiego.\n";
+            cout << "Wszyscy stanęli na baczność, a poświęcenie dla ojczyzny stało się nie tylko obowiązkiem, ale także celem.\n";
             
-        //TU TRZEBA DODAC WIECEJ ZDARZEN LOSOWYCH (najelepiej z 20-30)
-        // mozna tez stworzyc takie co nie wyplywaja na scoring
+            scoring += 10;
+            cout << scoring<<" do punktów za patriotyczne nastroje.\n\n";
+            break;
+        case 6:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Ziemia zadrżała, a z nieba robrzmiała siódma trąba. Koniec jest bliski.\n";
+            cout << "Klienci nalegają, żeby kontynować pracę. Ten ostatni raz chcą jeszcze zjeść cukierka.\n";
+            
+            scoring = 0;
+            cout << scoring<<" Koniec Świata. Za to nie ma punktów.\n\n";
+            break;
+        case 7:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Lech Wałęsa otwiera własny biznes stoczniowy.\n";
+            cout << "Wypłaty dla pracowników w starych nominałach. Gospodarka szaleje\n";
+            
+            scoring -= 10;
+            cout << scoring<<" do punktów za brak denominacji.\n\n";
+            break;            
+        case 8:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "'Husaria do boju!'\n";
+            cout << "To tylko kibice Wisły.\n";
+            
+            scoring -= 13;
+            cout << scoring<<" do punktów za ukrytą racę w plecaku.\n\n";
+            break;
+        case 9:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Ktoś próbował wymienić koło w samochodzie bananem!\n";
+            cout << "Podobno to nie takie trudne. Wystarczą dwa słoiki masła orzechowego.\n";
+            
+            scoring -= 19;
+            cout << scoring<<" do punktów za uczulenie na orzechy.\n\n";
+            break;
+        case 10:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Poznań miasto doznań\n";
+            cout << "Kraków miasto ptaków.\n";
+            
+           
+            cout <<"Co?\n\n";
+            break;
+        case 11:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "UJ donosi - nowe akademiki dla 400 studentów od roku 2026\n";
+            cout << "A właściwie to nie akademiki tylko szafki na buty. I nie dla 400, ale 40 studentów. Nie od 2026, ale 2035.\n";
+            
+            scoring -= 14;
+            cout << scoring<<" do punktów za pranie pieniędzy i gniew krakowskiej młodzieży.\n\n";
+            break;
+        case 12:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Ktoś przykecił klamki w kobierzynie.\n";
+            cout << "Pacjenci szpitala poszukiwani na terenie Krakowa.\n";
+            
+            scoring += 11;
+            cout << scoring<<" do punktów za patrole sąsiedzkie.\n\n";
+            break;
+        case 13:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Jakieś cwaniaczki obok otworzyły swoją budkę z cukierkami!\n";
+            cout << "Wolny rynek. Klinci zainteresowali się nowym 'towarem' na mieście.\n";
+            
+            scoring -= scoring/2;
+            cout << scoring<<" do punktów za mniejszy utarg.\n\n";
+            break;
+        case 14:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "EPI zaczęło sesję! Studenci codziennie przychodzą po paczkę cukierków!\n";
+            cout << "Zainteresowanie jest tak wielkie, że wprowadzasz zniżkę dla ich kierunku!.\n";
+            
+            scoring += scoring*2;
+            cout << scoring<<" do punktów za pomocnych studentów.\n\n";
+            break;
+        case 15:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Pomyliłeś zamówienia i dałeś klientowi nie tego cukierka co trzeba.\n";
+            cout << "Na twoich oczach wystrzeliło go z butów.\n";
+            
+            scoring += 22;
+            cout << scoring<<" do punktów za sprzedane buty\n\n";
+            break;
+        case 16:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Nietzche we własnej osobie przybył do twojej budki z cukierkami!\n";
+            cout << "No a potem napisał, że Bóg umarł...\n";
+            
+            
+            cout << " Ciężko stwierdzić, co to znaczy.\n\n";
+            break;
+        case 17:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Czy to ptak? Czy to samolot? Nie, to...\n";
+            cout << "TOYOTA COROLLA?!\n";
+            
+            scoring -= 17;
+            cout << scoring<<" do punktów za to, że nadal nie wiesz jak znalazła się w powietrzu.\n\n";
+            break;
+        case 18:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Twój ojciec wrócił z mlekiem.\n";
+            cout << "Rzucasz ten biznes. Właśnie wygrałeś życie.\n";
+            
+            scoring += 100;
+            cout << scoring<<" do punktów za tatę.\n\n";
+            break;
+        case 19:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "'Jestem tobą z przyszłości! Postaw wszytskie pieniądze na wygraną Polski w Euro 2032!'\n";
+            cout << "Jeszcze 7 lat. To sobie poczekamy...\n";
+            
+           
+            cout << "Za 7 lat może dostaniesz jakieś punkty.\n\n";
+            break;
+        case 20:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "Ktoś z tyłu krzyknął: 'Jestem przed tobą!'\n";
+            cout << "Pora przestać słuchać polskiego rapu. Rzuciło ci się na mózg.\n";
+            
+            scoring -= 69;
+            cout << scoring<<" do punktów za zryty beret.\n\n";
+            break;
+        case 21:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "A co jeśli wszyscy żyjemy w symulacji?\n";
+            cout << "To, trzeba przyznać, całkiem realistyczna.\n";
+            
+            scoring += 4.20;
+            cout << scoring<<" do punktów za nadzieję i chęć do dalszej ciężkiej pracy.\n\n";
+            break;
+        case 22:
+            cout << "\n✨ ZDARZENIE LOSOWE ✨\n";
+            cout << "'Obywatelki i obywatele Polskiej Rzeczypospolitej Ludowej!Zwracam się dziś do Was jako żołnierz i jako szef rządu polskiego.'\n";
+            cout << "Chyba musiało ci się przysnąć. Ale to tylko zły sen...\n";
+            
+            scoring += 33;
+            cout << scoring<<" do punktów za to, że jeszcze Polska nie zginęła!\n\n";
+            break;
         
         default:
             // brak zdarzenia
